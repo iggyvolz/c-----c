@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>C-----C</title>
+    <script src="../output/sha256.min.js"></script>
+    <script src="../output/bridge.min.js"></script>
+    <script src="../output/C_____CJS.min.js"></script>
+</head>
+<body>
+  <p>
+    <textarea rows="20" cols="50" id="input"></textarea>
+  </p>
+  <p>
+    <button id="button">Compile</button>
+  </p>
+  <p>
+    Output: <input type="text" disabled id="output" />
+  </p>
+  <p>
+    <a href="https://docs.google.com/document/d/1n-GMnqyTm6XWB33KaQnJ0AXe3YuRlY8MQQ7v8soyxVg/edit?usp=sharing">Manual</a>
+  </p>
+  <p>
+    tl;dr on C-----C:
+  </p>
+  <ul>
+    <li>A line may contain either a literal or an operation</li>
+    <li>A literal stores its value into an array noted by that line number</li>
+    <li>Line numbers less than 4 do not exist, nor do prime numbered lines (unless they are adjacent to a multiple of 7)</li>
+    <li>String literals are delimited by "&lt;string&gt;', integer literals are delimited by '&lt;int&gt;!</li>
+    <li>Operations are done by &lt;line number&gt;&lt;operator&gt;&lt;line number 2&gt;, and are defined in the Operations table</li>
+    <li>The first line must be the string "C-----C'</li>
+    <li>The error message is ¯\_(ツ)_/¯.  Of course we don't give detailed error messages - real programmers don't have errors in their code!</li>
+    <li>A program may return a segfault (if its sha256 sum shares a prime number of characters as the sha256 sum of C-----C).  If it does, sorry.</li>
+    <li>Is the language Turing complete?  Who knows?</li>
+  </ul>
+  <p>
+    If you have any questions, let me know, or <a href="https://github.com/iggyvolz/c-----c/issues">open an issue</a>.
+  </p>
+  <p>
+    Uses <a href="https://github.com/emn178/js-sha256">js-sha256</a> because Bridge.NET doesn't support C# crypto libraries.
+  </p>
+</body>
+</html>
