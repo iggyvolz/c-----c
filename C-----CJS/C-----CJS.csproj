@@ -37,6 +37,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Compiler.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="ProgramException.cs" />
+    <Compile Include="Int.cs" />
+    <Compile Include="String.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

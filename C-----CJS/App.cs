@@ -8,27 +8,33 @@ namespace C_____CJS
     {
         public static void Main()
         {
+            HTMLTextAreaElement input = Document.GetElementById<HTMLTextAreaElement>("input");
+            HTMLButtonElement button = Document.GetElementById<HTMLButtonElement>("button");
+            HTMLInputElement output = Document.GetElementById<HTMLInputElement>("output");
             // Create a new Button
-            var button = new HTMLButtonElement
-            {
-                InnerHTML = "Click Me",
-                OnClick = (ev) =>
+            button.OnClick = (ev) =>
                 {
                     // When Button is clicked, 
                     // the Bridge Console should open.
-                    Console.WriteLine("Success!");
-                }
-            };
-
-            // Add the Button to the page
-            Document.Body.AppendChild(button);
-
-            // To confirm Bridge.NET is working: 
-            // 1. Build this project (Ctrl + Shift + B)
-            // 2. Browse to file /Bridge/www/demo.html
-            // 3. Right-click on file and select "View in Browser" (Ctrl + Shift + W)
-            // 4. File should open in a browser, click the "Submit" button
-            // 5. Success!
+                    Compiler compiler = new Compiler(true);
+                    try
+                    {
+                        string data = input.Value;
+                        foreach (string line in data.Split("\n"))
+                        {
+                            compiler.Line(line);
+                        }
+                        output.Value = compiler.Return;
+                    }
+                    catch (ProgramException e)
+                    {
+                        output.Value = e.Message;
+                    }
+                    catch (Exception)
+                    {
+                        output.Value = ProgramException.DID_BAD;
+                    }
+                };
         }
     }
 }
